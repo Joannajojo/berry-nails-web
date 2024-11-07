@@ -1,4 +1,9 @@
 import express from "express";
+import {
+  createProduct,
+  getAllProducts,
+  getSingleProduct,
+} from "../controller/product.controller.js";
 
 //Router object to handle requests
 const router = express.Router();
@@ -8,28 +13,22 @@ router.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-//Retrieve specific product
-router.get("/:id", (req, res) => {
-  const productId = req.params.id;
-  res.send(`Id of the item is: ${productId}`);
-});
-
 //Get All products
-router.get("/prod", (req, res) => {
-  res.send("Obtained all nails");
-});
+router.get("/prod", getAllProducts);
 
-router.post("/", (req, res) => {
-  res.send("Create nails");
-});
+//Create product
+router.post("/", createProduct);
 
-router.put("/:id", (req, res) => {
-  res.send("Update nails");
-});
+//Retrieve specific product
+router.get("/:id", getSingleProduct);
 
-router.delete("/:id", (req, res) => {
-  res.send("Deleted nails");
-});
+// router.put("/:id", (req, res) => {
+//   res.send("Update nails");
+// });
+
+// router.delete("/:id", (req, res) => {
+//   res.send("Deleted nails");
+// });
 
 //Export router
 export default router;
