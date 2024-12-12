@@ -2,6 +2,7 @@ import express from "express";
 import {
   createProduct,
   getAllProducts,
+  getAllProductsByCategory,
   getSingleProduct,
 } from "../controller/product.controller.js";
 
@@ -21,6 +22,9 @@ router.post("/", createProduct);
 
 //Retrieve specific product
 router.get("/:id", getSingleProduct);
+
+//Retrieve by category
+router.get("/prod/:category", getAllProductsByCategory);
 
 // router.put("/:id", (req, res) => {
 //   res.send("Update nails");

@@ -54,3 +54,16 @@ export const createProduct = async (req, res) => {
     return res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
+export const getAllProductsByCategory = async (req, res) => {
+  const { category } = req.params;
+
+  try {
+    const products = await Product.find({ category });
+    res.status(201).json({ success: true, data: products });
+    console.log({ category });
+  } catch (error) {
+    console.log("error in fetching products", error.message);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+};

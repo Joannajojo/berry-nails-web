@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import productRouter from "./routes/product.route.js";
 import { connectDB } from "./config/db.js";
 //import userRouter from "./routes/product.route.js";
-
+import cors from "cors";
 const app = express();
 
 //Define port
@@ -12,6 +12,8 @@ const PORT = process.env.PORT || 3000;
 
 //middleware
 app.use(express.json());
+
+app.use(cors());
 app.use("/", productRouter);
 
 //use mongodb url
