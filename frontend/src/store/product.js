@@ -38,7 +38,19 @@ export const useProductStore = create((set) => ({
       const res = await fetch(endpoint);
       const data = await res.json();
       set({ products: data.data });
-      console.log("Fetched products:", data); // Debugging log
+    } catch (error) {
+      console.log("Error fetching products:", error);
+    }
+  },
+  fetchSingleProduct: async (id = "") => {
+    try {
+      const endpoint = id
+        ? `http://localhost:3000/${id}`
+        : "http://localhost:3000/";
+      const res = await fetch(endpoint);
+      const data = await res.json();
+      set({ products: data.data });
+      return data.data;
     } catch (error) {
       console.log("Error fetching products:", error);
     }

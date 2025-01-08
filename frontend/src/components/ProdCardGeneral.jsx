@@ -1,8 +1,7 @@
 import React from "react";
-import prod1 from "../assets/nail1.jpg";
 import { useNavigate } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const ProdCardGeneral = ({ product }) => {
   const navigate = useNavigate();
   const handlePaths = (id) => {
     if (id) {
@@ -20,7 +19,7 @@ const ProductCard = ({ product }) => {
       >
         <img
           className="w-full object-cover h-64 overflow-hidden"
-          src={product.images[0]}
+          src={product.image}
           alt={product.name}
         />
         <div className="p-2">
@@ -32,4 +31,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default ProdCardGeneral;

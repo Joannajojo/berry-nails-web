@@ -17,15 +17,13 @@ router.get("/", (req, res) => {
 //Get All products
 router.get("/prod", getAllProducts);
 
-//Create product
-router.post("/", createProduct);
-
 //Retrieve specific product
 router.get("/:id", getSingleProduct);
 
 //Retrieve by category
 router.get("/prod/:category", getAllProductsByCategory);
-
+//Create product
+router.post("/", createProduct);
 // router.put("/:id", (req, res) => {
 //   res.send("Update nails");
 // });

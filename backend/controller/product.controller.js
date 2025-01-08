@@ -17,7 +17,7 @@ export const getSingleProduct = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res
       .status(404)
-      .json({ success: false, message: "Invalid product ID" });
+      .json({ success: false, message: `Invalid product ID ${id}` });
   }
 
   try {
@@ -61,9 +61,19 @@ export const getAllProductsByCategory = async (req, res) => {
   try {
     const products = await Product.find({ category });
     res.status(201).json({ success: true, data: products });
-    console.log({ category });
   } catch (error) {
     console.log("error in fetching products", error.message);
     res.status(500).json({ success: false, message: "Server error" });
   }
 };
+
+// export const getAllProductsByMostOrder = async (req, res) => {
+
+//   try {
+//     const products = await Product.find({ tags: tag });
+//     res.status(201).json({ success: true, data: products });
+//   } catch (error) {
+//     console.log("error in fetching products", error.message);
+//     res.status(500).json({ success: false, message: "Server error" });
+//   }
+// };
