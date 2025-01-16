@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useCartStore } from "../store/cart";
 import "../index.css";
 import "@fontsource/poppins"; // Import Poppins font
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const Navbar = () => {
         </h1>
       </div>
 
-      <div className="flex flex-row navbar-right mr-5  w-1/4">
+      <div className="flex flex-row navbar-right   w-2/7">
         <ul className="navlinks flex flex-row">
           <li className="group mr-3 h-12 navbar-btn">
             <a className="hover:underline">ALL NAILS</a>
@@ -130,7 +131,12 @@ const Navbar = () => {
               </div>
             </ul>
           </li>
-          <li className="mr-3">CONTACT US</li>
+          <li className="mr-3">ABOUT US</li>
+          <li className="mr-3">
+            <Link to="/#howto-section">HOW TO</Link>
+          </li>
+          <li className="mr-3">GALLERY</li>
+          <li className="mr-3">TESTIMONIALS</li>
         </ul>
         <div className="flex flex-row navbar-profile  space-x-3">
           <img src={avatarImg} alt="" className="w-6 rounded-full" />

@@ -55,69 +55,75 @@ const Cart = () => {
   };
 
   return (
-    <div className="mt-5 mb-5">
-      <ProductHeader title="Cart" />
-      {cartItem.length > 0 ? (
-        <div>
-          {cartItem.map((item) => (
-            <div
-              key={item._id}
-              className="flex flex-row gap-4 border-white bg-customBeige p-2 mb-2 rounded-md text-sm justify-between items-center"
-            >
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  name=""
-                  id=""
-                  value={item._id}
-                  onChange={() => handleCheckedItem(item._id)}
-                />
-                <div>
-                  <img src={item.product.image} className="w-14 h-14" />
-                </div>
-                <div className="flex flex-col space-y-3">
-                  <p className="font-bold">{item.product.name}</p>
-                  <div className="flex gap-2 text-xs">
-                    <p>RM{item.product.price}</p>
-                    <p>Qty: {item.product.quantity}</p>
-                    <p>Size: {item.product.size}</p>
-                    <p>{item.product.category}</p>
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow">
+        <div className="pt-5 w-full ">
+          <ProductHeader title="Cart" />
+          {cartItem.length > 0 ? (
+            <div>
+              {cartItem.map((item) => (
+                <div
+                  key={item._id}
+                  className="flex flex-row gap-4  bg-customBeige p-2 mb-2 rounded-md text-sm justify-between items-center border-2"
+                >
+                  <div className="flex gap-2">
+                    <input
+                      type="checkbox"
+                      name=""
+                      id=""
+                      value={item._id}
+                      onChange={() => handleCheckedItem(item._id)}
+                    />
+                    <div>
+                      <img src={item.product.image} className="w-14 h-14" />
+                    </div>
+                    <div className="flex flex-col space-y-3">
+                      <p className="font-bold">{item.product.name}</p>
+                      <div className="flex gap-2 text-xs">
+                        <p>RM{item.product.price}</p>
+                        <p>Qty: {item.product.quantity}</p>
+                        <p>Size: {item.product.size}</p>
+                        <p>{item.product.category}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="flex gap-2">
-                {/* <button className="bg-blue-500 p-2 hover:bg-blue-600" onClick={()=>}>
+                  <div className="flex gap-2">
+                    {/* <button className="bg-blue-500 p-2 hover:bg-blue-600" onClick={()=>}>
                 <FaSquarePen />
               </button> */}
+                    <button
+                      className="bg-red-500 p-2 hover:bg-red-600"
+                      onClick={() => deleteCart(item._id)}
+                    >
+                      <FaTrash />
+                    </button>
+                  </div>
+                </div>
+              ))}
+              <div className="flex flex-row  justify-between mt-5">
+                <p className="font-bold">Total: RM {total.toFixed(2)}</p>
                 <button
-                  className="bg-red-500 p-2 hover:bg-red-600"
-                  onClick={() => deleteCart(item._id)}
+                  className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded ml-5"
+                  disabled={!checkout}
+                  onClick={() =>
+                    navigate("/checkout", { state: { selectedItems } })
+                  }
                 >
-                  <FaTrash />
+                  <div className="flex flex-row items-center">
+                    <span className="mr-2">Checkout</span>
+                    <FaArrowRight className="text-sm" />
+                  </div>
                 </button>
               </div>
             </div>
-          ))}
-          <div className="flex flex-row  justify-between mt-5">
-            <p className="font-bold">Total: RM {total.toFixed(2)}</p>
-            <button
-              className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded ml-5"
-              disabled={!checkout}
-              onClick={() =>
-                navigate("/checkout", { state: { selectedItems } })
-              }
-            >
-              <div className="flex flex-row items-center">
-                <span className="mr-2">Checkout</span>
-                <FaArrowRight className="text-sm" />
-              </div>
-            </button>
-          </div>
+          ) : (
+            <div>
+              <p className="text-center pt-10 pb-10">Your cart is empty.</p>{" "}
+            </div>
+          )}
         </div>
-      ) : (
-        <p className="text-center pt-10">Your cart is empty.</p>
-      )}
+      </div>
       <Footer />
     </div>
   );

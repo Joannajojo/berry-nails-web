@@ -9,9 +9,10 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import "../index.css";
+
 const Footer = () => {
   return (
-    <div className=" p-10 font-sans bg-blue-300 grid grid-cols-3 gap-5 justify-center footer-text    ">
+    <div className=" flex p-10 font-sans bg-blue-300 grid grid-cols-3 gap-5 justify-between footer-text  h-auto w-full m-0  align-center">
       <div className="ml-10">
         <p className="footer-sub-title mb-5">
           <strong>SUPPORT</strong>

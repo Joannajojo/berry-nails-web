@@ -5,6 +5,7 @@ import {
   FaArrowRight,
   FaClock,
   FaHeart,
+  FaInstagram,
   FaQuoteLeft,
   FaQuoteRight,
   FaRegCalendarCheck,
@@ -14,7 +15,9 @@ import { useOrderStore } from "../store/order";
 import DisplayCard from "../components/DisplayCard";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
-
+import nailSizeImg from "../assets/measure_nail.jpg";
+import nailKitImg from "../assets/nail_kit.jpg";
+import ReactPlayer from "react-player";
 const Homepage = () => {
   const navigate = useNavigate();
 
@@ -97,48 +100,63 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className="">
-        <h1 className="text-center text-4xl mt-10 homepage-section">HOW TO:</h1>
-        <div className="p-5 m-auto w-[55%] ">
-          <h1 className="font-bold">
+      <section id="howto-section" className="mb-10 w-[45%] m-auto">
+        <h1 className="text-center text-4xl mt-10 homepage-section">HOW TO</h1>
+        <div className="p-5  space-y-5 ">
+          <h1 className="text-center font-bold m-5">
             <i>Measure your size: </i>
           </h1>
+          <img src={nailSizeImg} className="m-auto h-64" />
           <p>
             1. Measure your nail bed width from side to side using a measurement
             tape.
           </p>
-          <p>2. Do the same for each fingersRefer to the sizing kit provided</p>
-          <p>3. Jot down nail size </p>
-          <p>4. Do the same for each fingers</p>
+          <p>2. Refer width to the size chart provided</p>
+          <p>3. Jot down the category your nails generally fall under </p>
         </div>
 
-        <div className="p-5 m-auto w-[55%]">
-          <h1 className="font-bold">
+        <div className="p-5  space-y-5">
+          <h1 className="font-bold text-center">
             <i>Apply:</i>
           </h1>
-          <p>1. Check to see if each nail fits</p>
+          <img src={nailKitImg} alt="" />
+          <p>1. Check to see which nail fits your size</p>
+          <p>2. Push down cuticles gently with the wooden cuticle pusher</p>
           <p>
-            2. Prep your nails by trimming, filing and buffing them with our
-            provided nail files
+            3. Prep your nails by trimming, filing and buffing them with our
+            provided mini nail file
           </p>
           <p>
-            3. Rub each nails with the provided alcohol pad to remove any dust.{" "}
+            4. Rub each nails with the provided alcohol pad to remove any dust.{" "}
           </p>
-          <p>4. Apply glue to the back of the nail</p>
-          <p>5. Stick the nail at 45 degree angle and gently push it down</p>
+          <p>5. Apply glue to the back of the nail</p>
+          <p>6. Stick the nail at 45 degree angle and gently push it down</p>
           <p>
-            6. The nail should take 1 hour to dry. Refrain from washing your
-            hands during this time
+            7. The nail should take less than 20 mins to dry. Refrain from
+            washing your hands during this time
           </p>
         </div>
+      </section>
+      <div>
+        <ReactPlayer
+          url={"https://www.youtube.com/watch?v=8DHP5XZPSjc"}
+          controls={false}
+          className="m-auto text-center h-80 mt-10"
+        />
       </div>
 
-      <div>
+      <div id="gallery-section">
         <h1 className="text-center text-4xl mt-10 homepage-section mb-5 ">
           <span className="flex flex-row items-center gap-2 justify-center">
             THEY NAILED IT <FaWandSparkles />
           </span>
         </h1>
+        <p className=" mb-5">
+          <span className="flex flex-row justify-center items-center gap-2">
+            <FaInstagram />
+            Our favourite looks on #nailstagram with BerryFancyNails press-ons!
+          </span>
+        </p>
         <div className="grid grid-cols-3 gap-5 p-10">
           <img
             src="https://images.unsplash.com/photo-1563730049333-31f8f9161f4d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -188,9 +206,9 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className="m-10 p-5">
+      <div id="testimonial-section" className="m-10 p-5">
         <h1 className="text-center text-4xl mt-10 mb-10 homepage-section">
-          TESTEMONIALS
+          TESTIMONIALS
         </h1>
 
         <div className="grid grid-cols-3 gap-10 mt-10">

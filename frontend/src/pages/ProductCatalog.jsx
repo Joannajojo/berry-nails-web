@@ -3,6 +3,7 @@ import { useProductStore } from "../store/product";
 import ProductCard from "../components/ProductCard";
 import { useParams } from "react-router-dom";
 import ProductHeader from "../components/ProductHeader";
+import Footer from "../components/Footer";
 const ProductCatalog = () => {
   const { category } = useParams();
   const { fetchProducts, products } = useProductStore();
@@ -26,17 +27,22 @@ const ProductCatalog = () => {
 
   //display a map of products from db by category
   return (
-    <div className="p-5">
-      <ProductHeader title={category} />
-      <div className="grid grid-cols-3  gap-4 pt-10 ">
-        {products.length > 0 ? (
-          products.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))
-        ) : (
-          <p className="text-center m-5">No results found.</p>
-        )}
+    <div className="flex flex-col min-h-screen">
+      <div className="flex-grow">
+        <div className="p-5">
+          <ProductHeader title={category} />
+          <div className="grid grid-cols-3  gap-4 pt-10 ">
+            {products.length > 0 ? (
+              products.map((product) => (
+                <ProductCard key={product._id} product={product} />
+              ))
+            ) : (
+              <p className="text-center m-5">No results found.</p>
+            )}
+          </div>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

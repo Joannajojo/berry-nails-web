@@ -13,6 +13,7 @@ import OrderSuccess from "./pages/OrderSuccess";
 import OrderFail from "./pages/OrderFail";
 import "@fontsource/poppins"; // Import the Poppins font
 import ProductCatalogGeneral from "./pages/ProductCatalogGeneral";
+
 function App() {
   //const { fetchCartItems, cart } = useCartStore();
   const fetchCartItems = useCartStore((state) => state.fetchCartItems);

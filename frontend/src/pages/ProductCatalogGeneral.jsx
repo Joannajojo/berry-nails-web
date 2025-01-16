@@ -3,6 +3,7 @@ import { useOrderStore } from "../store/order";
 import DisplayCard from "../components/DisplayCard";
 import ProductHeader from "../components/ProductHeader";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const ProductCatalogGeneral = () => {
   const { fetchMostOrdered, topSelling } = useOrderStore();
@@ -22,19 +23,22 @@ const ProductCatalogGeneral = () => {
     }
   };
   return (
-    <div>
-      <ProductHeader title="Top Selling" />
-      <div className="p-4 grid grid-cols-3 gap-2 pt-10">
-        {topSelling.length > 0 ? (
-          topSelling.map((item) => (
-            <a onClick={() => handlePaths(item.details.productId)}>
-              <DisplayCard key={item._id} item={item.details} />
-            </a>
-          ))
-        ) : (
-          <p className="text-center m-5">No results found.</p>
-        )}
+    <div className="flex flex-col min-h-screen">
+      <div>
+        <ProductHeader title="Top Selling" />
+        <div className="p-4 grid grid-cols-3 gap-2 pt-10">
+          {topSelling.length > 0 ? (
+            topSelling.map((item) => (
+              <a onClick={() => handlePaths(item.details.productId)}>
+                <DisplayCard key={item._id} item={item.details} />
+              </a>
+            ))
+          ) : (
+            <p className="text-center m-5">No results found.</p>
+          )}
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };
