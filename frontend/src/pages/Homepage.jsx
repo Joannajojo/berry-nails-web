@@ -53,7 +53,10 @@ const Homepage = () => {
             <p className="text-3xl font-bold mb-5 homepage-banner">
               Designed for all
             </p>
-            <button className="text-base bg-customHomeButtonColor w-1/4 p-4 mx-auto rounded-md font-bold hover:bg-customHomeButtonHoverColor">
+            <button
+              className="text-base bg-customHomeButtonColor w-1/4 p-4 mx-auto rounded-md font-bold hover:bg-customHomeButtonHoverColor"
+              onClick={() => navigate("/prod/all")}
+            >
               Shop Now
             </button>
           </div>
@@ -242,7 +245,6 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

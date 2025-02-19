@@ -38,7 +38,6 @@ const ProductCatalogGeneral = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

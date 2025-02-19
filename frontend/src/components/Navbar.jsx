@@ -47,7 +47,12 @@ const Navbar = () => {
                 <ul className="flex flex-col space-y-2">
                   <p className="font-bold text-[#966AB6] mb-4">SHOP BY</p>
                   <li className="ml-2">
-                    <a>Shop All</a>
+                    <a
+                      onClick={() => handlePaths({ category: "all" })}
+                      className="cursor-pointer hover:underline"
+                    >
+                      Shop All
+                    </a>
                   </li>
                   <li className="ml-2">
                     <button
@@ -131,7 +136,14 @@ const Navbar = () => {
               </div>
             </ul>
           </li>
-          <li className="mr-3">ABOUT US</li>
+          <li className="mr-3">
+            <a
+              onClick={() => navigate("/about")}
+              className=" cursor-pointer hover:underline"
+            >
+              ABOUT US
+            </a>
+          </li>
           <li className="mr-3">
             <Link to="/#howto-section">HOW TO</Link>
           </li>

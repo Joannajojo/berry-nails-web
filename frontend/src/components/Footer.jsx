@@ -9,8 +9,10 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 import "../index.css";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className=" flex p-10 font-sans bg-blue-300 grid grid-cols-3 gap-5 justify-between footer-text  h-auto w-full m-0  align-center">
       <div className="ml-10">
@@ -18,7 +20,14 @@ const Footer = () => {
           <strong>SUPPORT</strong>
         </p>
         <ul className="space-y-3">
-          <li>About Us</li>
+          <li>
+            <a
+              onClick={() => navigate("/about")}
+              className="cursor-pointer hover:underline"
+            >
+              About Us
+            </a>
+          </li>
           <li>Contact Us</li>
           <li>FAQ</li>
         </ul>

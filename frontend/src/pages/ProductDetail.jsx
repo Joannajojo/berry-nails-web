@@ -96,7 +96,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div>
+    <div className="flex-col min-h-screen">
       <div className="flex flex-row m-5 gap-1">
         <div className="w-[50%] h-96 overflow-hidden object-cover ">
           {products.images[0] ? (
@@ -198,8 +198,6 @@ const ProductDetail = () => {
           <p className="mt-10">{products.description}</p>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

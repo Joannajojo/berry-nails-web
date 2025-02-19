@@ -13,6 +13,8 @@ import OrderSuccess from "./pages/OrderSuccess";
 import OrderFail from "./pages/OrderFail";
 import "@fontsource/poppins"; // Import the Poppins font
 import ProductCatalogGeneral from "./pages/ProductCatalogGeneral";
+import Footer from "./components/Footer";
+import About from "./pages/About";
 
 function App() {
   //const { fetchCartItems, cart } = useCartStore();
@@ -36,10 +38,12 @@ function App() {
           <Route path="/fail" element={<OrderFail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/about" element={<About />} />
           <Route path="/:_id" element={<ProductDetail />} />
           <Route path="/prod/:category" element={<ProductCatalog />} />
           <Route path="/prod/topselling" element={<ProductCatalogGeneral />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

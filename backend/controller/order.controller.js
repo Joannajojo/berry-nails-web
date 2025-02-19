@@ -13,7 +13,11 @@ export const createOrder = async (req, res) => {
     return res.status(201).json({ success: true, data: newOrder });
   } catch (error) {
     console.log("Error in creating order");
-    return res.status(500).json({ success: false, message: "Server Error" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Server Error" })
+      .send();
+    //return res.status(500).send({ error: error.message });
   }
 };
 

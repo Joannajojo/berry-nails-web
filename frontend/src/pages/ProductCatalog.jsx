@@ -42,7 +42,6 @@ const ProductCatalog = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -45,5 +45,11 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.14"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

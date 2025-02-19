@@ -32,6 +32,7 @@ export const useProductStore = create((set) => ({
   // },
   fetchProducts: async (category = "") => {
     try {
+      if (category === "all") category = "";
       const endpoint = category
         ? `http://localhost:3000/prod/${category}`
         : "http://localhost:3000/prod";

@@ -3,8 +3,14 @@ import Product from "../models/product.model.js";
 
 export const getAllProducts = async (req, res) => {
   try {
-    const products = await Product.find({});
-    res.status(201).json({ success: true, data: products });
+    if (req.body.forceError) {
+      //param sent by Jest to simulate server error
+      //for testing purposes only
+      throw new Error("Simulated server error"); // Force an error for testing
+    } else {
+      const products = await Product.find({});
+      res.status(201).json({ success: true, data: products });
+    }
   } catch (error) {
     console.log("error in fetching products", error.message);
     res.status(500).json({ success: false, message: "Server error" });
@@ -21,8 +27,14 @@ export const getSingleProduct = async (req, res) => {
   }
 
   try {
-    const product = await Product.findById(id);
-    return res.status(201).json({ success: true, data: product });
+    if (req.body.forceError) {
+      //param sent by Jest to simulate server error
+      //for testing purposes only
+      throw new Error("Simulated server error"); // Force an error for testing
+    } else {
+      const product = await Product.findById(id);
+      return res.status(201).json({ success: true, data: product });
+    }
   } catch (error) {
     console.log("Error in fetching single product");
     return res.status(500).json({ success: false, message: "Server Error" });
