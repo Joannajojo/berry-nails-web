@@ -68,7 +68,6 @@ const ProductDetail = () => {
       };
       await createCartItem(cartItem);
 
-      console.log("New Cart Item:", cartItem);
       //call createCartItem directly with the newCartItem object
       //await createCartItem(newCartItem);
       //await createCartItem();
@@ -96,11 +95,15 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="flex-col min-h-screen">
+    <div className="flex-col min-h-screen pt-10">
       <div className="flex flex-row m-5 gap-1">
-        <div className="w-[50%] h-96 overflow-hidden object-cover ">
+        <div className="w-[50%] h-96 ">
           {products.images[0] ? (
-            <img src={products.images[0]} alt="Product" />
+            <img
+              className="w-[90%] h-96 object-cover object-center"
+              src={products.images[0]}
+              alt="Product"
+            />
           ) : (
             <p>No image available</p>
           )}

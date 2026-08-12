@@ -4,7 +4,7 @@ import AboutImg from "../assets/about.jpg";
 import About2Img from "../assets/about2.jpg";
 const About = () => {
   return (
-    <div className="flex-col min-h-screen mb-10">
+    <div className="flex-col min-h-screen mb-10 pt-10">
       <ProductHeader title="About Us" />
 
       <p className="ml-10 mr-10 text-xl mt-10 text-gray-600">

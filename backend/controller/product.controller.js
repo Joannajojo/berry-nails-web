@@ -43,6 +43,7 @@ export const getSingleProduct = async (req, res) => {
 
 export const createProduct = async (req, res) => {
   const product = req.body;
+  //validation
   if (
     !product.name ||
     !product.price ||

@@ -13,20 +13,22 @@ import {
 } from "react-icons/fa6";
 import { useOrderStore } from "../store/order";
 import DisplayCard from "../components/DisplayCard";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import nailSizeImg from "../assets/measure_nail.jpg";
 import nailKitImg from "../assets/nail_kit.jpg";
+import bannerImg from "../assets/banner.jpg";
 import ReactPlayer from "react-player";
 const Homepage = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
-  let slides = [
-    "https://kaneezi.com/wp-content/uploads/2024/06/steptodown.com134235.jpg",
-    "https://www.nailberry.co.uk/cdn/shop/articles/Banner.jpg?v=1686925266",
-    "https://media.glamour.com/photos/66c64db0174b6a2c139b5f41/3:2/w_2160,h_1440,c_limit/MixCollage-21-Aug-2024-04-27-PM-2211.jpg",
-    handImg1,
-  ];
+  // let slides = [
+  //   "https://kaneezi.com/wp-content/uploads/2024/06/steptodown.com134235.jpg",
+  //   "https://www.nailberry.co.uk/cdn/shop/articles/Banner.jpg?v=1686925266",
+  //   "https://media.glamour.com/photos/66c64db0174b6a2c139b5f41/3:2/w_2160,h_1440,c_limit/MixCollage-21-Aug-2024-04-27-PM-2211.jpg",
+  //   handImg1,
+  // ];
 
   const { fetchMostOrdered, topSelling } = useOrderStore();
   useEffect(() => {
@@ -36,16 +38,25 @@ const Homepage = () => {
     fetchTopSelling();
   }, []);
 
+  //Manually scroll to hashed section when click any section within the same page
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  });
   if (!topSelling) return "<p className='text-center'>Loading...</p>";
   return (
-    <div className="">
+    <div className="pt-10">
       {
         /* <Slideshow slides={slides} /> */
 
         // Homepage banner
-        <div className="banner w-full flex flex-row m-auto">
+        <div className="banner w-full flex flex-row m-auto mt-10 mb-10">
           <div className="banner-left w-[40%]">
-            <img src="https://kaneezi.com/wp-content/uploads/2024/06/steptodown.com134235.jpg" />
+            <img src={bannerImg} loading="lazy" alt="Banner" />
           </div>
           <div
             className={`banner-right bg-customBeige w-[60%] flex flex-col justify-center text-center`}
@@ -103,7 +114,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      <section id="howto-section" className="mb-10 w-[45%] m-auto">
+      <section id="howto-section" className="mb-10 w-[45%] m-auto pt-5">
         <h1 className="text-center text-4xl mt-10 homepage-section">HOW TO</h1>
         <div className="p-5  space-y-5 ">
           <h1 className="text-center font-bold m-5">
@@ -130,7 +141,8 @@ const Homepage = () => {
             provided mini nail file
           </p>
           <p>
-            4. Rub each nails with the provided alcohol pad to remove any dust.{" "}
+            4. Rub each nails with the provided alcohol pad to remove any
+            dust.{" "}
           </p>
           <p>5. Apply glue to the back of the nail</p>
           <p>6. Stick the nail at 45 degree angle and gently push it down</p>
@@ -148,8 +160,8 @@ const Homepage = () => {
         />
       </div>
 
-      <div id="gallery-section">
-        <h1 className="text-center text-4xl mt-10 homepage-section mb-5 ">
+      <div id="gallery-section" className="scroll-mt-10">
+        <h1 className="text-center text-4xl mt-10 homepage-section mb-5 pt-5 ">
           <span className="flex flex-row items-center gap-2 justify-center">
             THEY NAILED IT <FaWandSparkles />
           </span>
@@ -209,7 +221,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div id="testimonial-section" className="m-10 p-5">
+      <div id="testimonial-section" className="m-10 p-5 pt-10">
         <h1 className="text-center text-4xl mt-10 mb-10 homepage-section">
           TESTIMONIALS
         </h1>
@@ -217,7 +229,8 @@ const Homepage = () => {
         <div className="grid grid-cols-3 gap-10 mt-10">
           <div>
             <span className="flex flex-row gap-2">
-              <FaQuoteLeft /> Lorem ipsum dolor sit amet consectetur adipisicing{" "}
+              <FaQuoteLeft /> Lorem ipsum dolor sit amet consectetur
+              adipisicing{" "}
             </span>
             <div className="text-right">
               <p className="font-bold mt-10 text-sm">Loraine Johnson</p>
@@ -226,7 +239,8 @@ const Homepage = () => {
           </div>
           <div>
             <span className="flex flex-row gap-2">
-              <FaQuoteLeft /> Lorem ipsum dolor sit amet consectetur adipisicing{" "}
+              <FaQuoteLeft /> Lorem ipsum dolor sit amet consectetur
+              adipisicing{" "}
             </span>
             <div className="text-right">
               <p className="font-bold mt-10 text-sm">Jennie Dakota</p>
@@ -236,7 +250,8 @@ const Homepage = () => {
 
           <div>
             <span className="flex flex-row gap-2">
-              <FaQuoteLeft /> Lorem ipsum dolor sit amet consectetur adipisicing{" "}
+              <FaQuoteLeft /> Lorem ipsum dolor sit amet consectetur
+              adipisicing{" "}
             </span>
             <div className="text-right">
               <p className="font-bold mt-10 text-sm">Talitha Benjamin</p>

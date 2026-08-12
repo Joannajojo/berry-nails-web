@@ -1,5 +1,7 @@
+// create is a  function from Zustand that initializes the store.
 import { create } from "zustand";
 
+// useCartStore: A custom hook that provides access to the cart store.
 export const useCartStore = create((set, get) => ({
   cartItem: [],
   selectedCartItems: [],
@@ -33,7 +35,7 @@ export const useCartStore = create((set, get) => ({
     set((state) => ({
       cartItem: [...state.cartItem, data.data],
     })); // Update cartQuantity based on newCItem.product.quantity }
-    console.log("Cart Item added in store:", data.data);
+
     return { success: true, message: "CartItem created successfully" };
   },
   // createCartItem: async () => {

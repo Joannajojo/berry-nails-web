@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useCartStore } from "../store/cart";
 import "../index.css";
 import "@fontsource/poppins"; // Import Poppins font
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="p-3 font-sans bg-blue-300 flex flex-row justify-between h-12">
+    <nav className=" shadow-md fixed top-0 w-full z-50 p-3 font-sans bg-blue-300 flex flex-row justify-between h-12">
       <div className="navbar-left">
         <h1
           className="ml-2 pl-3 text-[#966AB6]  "
@@ -136,19 +136,24 @@ const Navbar = () => {
               </div>
             </ul>
           </li>
-          <li className="mr-3">
+          <li className="group mr-3 h-12 navbar-btn ">
             <a
               onClick={() => navigate("/about")}
-              className=" cursor-pointer hover:underline"
+              // className=" cursor-pointer hover:underline"
             >
               ABOUT US
             </a>
           </li>
-          <li className="mr-3">
-            <Link to="/#howto-section">HOW TO</Link>
+          <li className="group mr-3 h-12 navbar-btn">
+            <Link to="/#howto-section">HOW TO</Link>{" "}
+            {/*Link to how to section in Homepage file */}
           </li>
-          <li className="mr-3">GALLERY</li>
-          <li className="mr-3">TESTIMONIALS</li>
+          <li className="mr-3 h-12 navbar-btn">
+            <Link to="/#gallery-section">GALLERY</Link>
+          </li>
+          <li className="mr-3 h-12 navbar-btn">
+            <Link to="/#testimonial-section">TESTIMONIALS</Link>
+          </li>
         </ul>
         <div className="flex flex-row navbar-profile  space-x-3">
           <img src={avatarImg} alt="" className="w-6 rounded-full" />

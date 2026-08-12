@@ -1,28 +1,23 @@
 import express from "express";
-
+import {
+  createUser,
+  getUser,
+  verifyUserData,
+} from "../controller/user.controller.js";
 //Router object to handle requests
 const router = express.Router();
 
 //Basic route
-router.get("/", (req, res) => {
-  res.send("Hello World");
-});
+//Retrieve specific user using post
+router.post("/login", verifyUserData);
 
-//Retrieve specific product
-router.get("/:id", (req, res) => {
-  const userId = req.params.id;
-  res.send(`Id of the user is: ${userId}`);
-});
+router.post("/register", createUser);
 
-router.post("/", (req, res) => {
-  res.send("Create user");
-});
-
-router.put("/:id", (req, res) => {
+router.put("/edit/:id", (req, res) => {
   res.send("Update user");
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/delete/:id", (req, res) => {
   res.send("Deleted user");
 });
 

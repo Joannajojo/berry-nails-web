@@ -34,7 +34,6 @@ const Cart = () => {
 
     setTotal(initTotal);
     selectedItems.length > 0 ? setCheckout(true) : setCheckout(false);
-    console.log("Selected Items:", selectedItems);
   }, [selectedItems]);
 
   const deleteCart = async (id) => {
@@ -55,7 +54,7 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen pt-10">
       <div className="flex-grow">
         <div className="pt-5 w-full ">
           <ProductHeader title="Cart" />

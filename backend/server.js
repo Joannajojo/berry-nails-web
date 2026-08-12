@@ -13,20 +13,8 @@ import cors from "cors";
 //Define port
 const PORT = process.env.PORT || 3000;
 
-// const app = express();
-
-// //middleware
-// app.use(express.json());
-// app.use(cors());
-
-// //routes
-// app.use("/cart", cartRouter);
-// app.use("/order", orderRouter);
-// app.use("/", productRouter);
 const app = createServer();
-//use mongodb url
 
-// console.log(process.env.MONGO_URI);
 //Start server
 const startServer = async () => {
   app.listen(PORT, () => {

@@ -15,6 +15,8 @@ import "@fontsource/poppins"; // Import the Poppins font
 import ProductCatalogGeneral from "./pages/ProductCatalogGeneral";
 import Footer from "./components/Footer";
 import About from "./pages/About";
+import Login from "./pages/Login";
+import UserRegistration from "./pages/UserRegistration";
 
 function App() {
   //const { fetchCartItems, cart } = useCartStore();
@@ -34,6 +36,8 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
+          <Route path="/register" element={<UserRegistration />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/success" element={<OrderSuccess />} />
           <Route path="/fail" element={<OrderFail />} />
           <Route path="/cart" element={<Cart />} />
